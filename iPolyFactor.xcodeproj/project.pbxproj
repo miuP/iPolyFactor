@@ -248,6 +248,11 @@
 				CLASSPREFIX = SS;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = SoySrc;
+				TargetAttributes = {
+					43F6CCE8177183AF00738509 = {
+						DevelopmentTeam = VV4XJ6D4G4;
+					};
+				};
 			};
 			buildConfigurationList = 43F6CCE4177183AF00738509 /* Build configuration list for PBXProject "iPolyFactor" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -438,6 +443,7 @@
 		43F6CD25177183B000738509 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iPolyFactor/iPolyFactor-Prefix.pch";
 				INFOPLIST_FILE = "iPolyFactor/iPolyFactor-Info.plist";
@@ -449,6 +455,7 @@
 		43F6CD26177183B000738509 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iPolyFactor/iPolyFactor-Prefix.pch";
 				INFOPLIST_FILE = "iPolyFactor/iPolyFactor-Info.plist";

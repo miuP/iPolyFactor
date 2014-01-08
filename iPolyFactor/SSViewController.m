@@ -91,7 +91,7 @@
 	
 	mathMLView = [[UIWebView alloc] initWithFrame:monitorView.frame];
 	[monitorView addSubview:mathMLView];
-	mathMLView.scalesPageToFit = YES;
+//	mathMLView.scalesPageToFit = YES;
 	mathMLView.userInteractionEnabled = NO;
 	
 	// For quiz
