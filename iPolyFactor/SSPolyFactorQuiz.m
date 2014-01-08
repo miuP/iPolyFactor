@@ -379,6 +379,7 @@ NSString *SSPolyFactorQuizDidUpdateExpressionNotification = @"SSPolyFactorQuizDi
 - (void)giveUp
 {
 	gaveUp = YES;
+	
 	(k > 0) ? (signKString = @"") : (signKString = @"<mo>-</mo>");
 	(p > 0) ? (signPString = @"") : (signPString = @"<mo>-</mo>");
 	if (!(c == 0 || (p == r && q == s))) {

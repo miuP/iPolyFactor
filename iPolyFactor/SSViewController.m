@@ -65,18 +65,24 @@
 	// Setup keyboard view.
 	keyboardView = [[UIView alloc] initWithFrame:CGRectMake(appWinSz.width * 6.0 / 11.0, 0.0, appWinSz.width * 5.0 / 11.0, appWinSz.height)];
 	[self.view addSubview:keyboardView];
-	keyboardView.backgroundColor = [UIColor lightGrayColor];
+	keyboardView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1.0];
 	
 	UIButton *button[NUMBER_OF_KEYS];
 	for (int i = 0; i < NUMBER_OF_KEYS; i++) {
 		button[i] = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[keyboardView addSubview:button[i]];
 		button[i].exclusiveTouch = YES;
-		button[i].backgroundColor = [UIColor whiteColor];
+		button[i].tintColor = [UIColor colorWithWhite:1.0 alpha:1.0];
+		button[i].backgroundColor = [UIColor colorWithWhite:0.0 alpha:1.0];
+		button[i].layer.borderWidth = 1.0;
+		button[i].layer.borderColor = [keyboardView.backgroundColor CGColor];
+		button[12].backgroundColor = [UIColor colorWithRed:0.8 green:0.0 blue:0.0 alpha:1.0];
+		button[13].backgroundColor = [UIColor colorWithRed:0.8 green:0.0 blue:0.0 alpha:1.0];
+		button[14].backgroundColor = [UIColor colorWithRed:0.8 green:0.0 blue:0.0 alpha:1.0];
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-			button[i].titleLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:100.0];
+			button[i].titleLabel.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:100.0];
 		} else {
-			button[i].titleLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:42.0];
+			button[i].titleLabel.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:42.0];
 		}
 		button[i].contentEdgeInsets = UIEdgeInsetsMake(0.0, 14.0, 0.0, 14.0);
 		button[i].titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -139,7 +145,7 @@
 		resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, appWinSz.height - 54.0, mathMLView.frame.size.width - 20.0, 44.0)];
 	}
 	[monitorView addSubview:resultLabel];
-	resultLabel.font = [UIFont fontWithName:@"Futura" size:32.0];
+	resultLabel.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:32.0];
 	resultLabel.backgroundColor = [UIColor clearColor];
 	resultLabel.textColor = [UIColor whiteColor];
 	resultLabel.adjustsFontSizeToFitWidth = YES;
@@ -279,7 +285,7 @@
 			case 13:
 			{
 				[aButton setTitle:@"?" forState:UIControlStateNormal];
-				[aButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+				[aButton setTitleColor:aButton.backgroundColor forState:UIControlStateNormal];
 				aButton.userInteractionEnabled = NO;
 			}
 				break;
@@ -361,7 +367,7 @@
 					markLabel.text = @"×";
 				}
 				((UIButton *)buttons[13]).userInteractionEnabled = YES;
-				[((UIButton *)buttons[13]) setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+				[((UIButton *)buttons[13]) setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 				[self updateResultLabel];
 			} else if (currentQuiz.phase == SSPolyFactorQuizPhaseShowingResult && [currentQuiz evaluate] == YES) {	// If user understand how to solve, then he can go to the next quiz.
 				markLabel.text = @"";
@@ -407,7 +413,7 @@
 	currentQuiz = [SSPolyFactorQuiz quizWithLevel:SSPolyFactorQuizLevelBEGINNER];
 	[self updateMathMLView];
 	((UIButton *)buttons[13]).userInteractionEnabled = NO;
-	[((UIButton *)buttons[13]) setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+	[((UIButton *)buttons[13]) setTitleColor:((UIButton *)buttons[13]).backgroundColor forState:UIControlStateNormal];
 }
 
 - (void)updateMathMLView
