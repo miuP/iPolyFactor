@@ -44,8 +44,8 @@
 	self.view.multipleTouchEnabled = NO;
 	self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.18 blue:0.0 alpha:1.0];
 	// Do any additional setup after loading the view, typically from a nib.
-	CGSize appWinSz	= CGSizeMake([[UIScreen mainScreen] bounds].size.height, // for landscape orientation.
-								 [[UIScreen mainScreen] bounds].size.width);
+	CGSize appWinSz	= CGSizeMake([[UIScreen mainScreen] bounds].size.width, // for landscape orientation.
+								 [[UIScreen mainScreen] bounds].size.height);
 	
 	UILabel *secretLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 0.0, appWinSz.width - 20.0, appWinSz.height)];
 	[self.view addSubview:secretLabel];
@@ -84,7 +84,6 @@
 		} else {
 			button[i].titleLabel.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:42.0];
 		}
-		button[i].contentEdgeInsets = UIEdgeInsetsMake(0.0, 14.0, 0.0, 14.0);
 		button[i].titleLabel.adjustsFontSizeToFitWidth = YES;
 		[button[i] addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchDown];
 	}
@@ -203,6 +202,7 @@
 	UISlider *aSlider = sender;
 	for (int i = 0; i < NUMBER_OF_KEYS; i++) {
 		UIButton *aButton = buttons[i];
+        [aButton.titleLabel setFont:[UIFont systemFontOfSize: 50 - aSlider.value * 0.5]];
 		aButton.frame = CGRectMake((keyboardView.frame.size.width / 3.0) * (i % 3) + aSlider.value,
 								   (keyboardView.frame.size.height * (4.0 / 5.0 - (1.0 / 5.0) * (i / 3))) + aSlider.value,
 								   keyboardView.frame.size.width / 3 - aSlider.value * 2,
